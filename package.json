@@ -1,0 +1,28 @@
+{
+  "description": "",
+  "main": "index.js",
+    "name": "skyx-games-api",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SkyXo23n/skyxgames.com.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SkyXo23n/skyxgames.com/issues"
+  },
+  "homepage": "https://github.com/SkyXo23n/skyxgames.com#readme",
+  "dependencies": {
+    "googleapis": "^129.0.0"
+  },
+  "browser": {
+    "google-logging-utils": false
+  }
+
+}
+

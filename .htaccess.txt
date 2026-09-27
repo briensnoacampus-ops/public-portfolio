@@ -1,0 +1,11 @@
+<IfModule mod_headers.c>
+    SetEnvIf Origin "^https://(agizus|launcher)\.skyxgames\.com$" CORS_ALLOW_ORIGIN=$0
+
+    Header set Access-Control-Allow-Origin "%{CORS_ALLOW_ORIGIN}e" env=CORS_ALLOW_ORIGIN
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, Authorization, Accept"
+    Header set Access-Control-Allow-Credentials "true"
+
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "DENY"
+</IfModule>

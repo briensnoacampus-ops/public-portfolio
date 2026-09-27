@@ -1,0 +1,44 @@
+name = "portfolio"
+compatibility_date = "2026-01-01"
+
+[functions]
+  directory = "./functions"
+
+[build]
+  command = ""
+  publish = "."
+
+[[redirects]]
+  from = "/wp-includes/*"
+  to = "/"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/wp-admin/*"
+  to = "/"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/wp-content/*"
+  to = "/"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/xmlrpc.php"
+  to = "/"
+  status = 410
+  force = true
+
+# Redirection Single Page Application (SPA)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT_KV"
+id = "0179d5e4031047d59339169d9f0f1275"

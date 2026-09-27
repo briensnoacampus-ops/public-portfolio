@@ -1,0 +1,9 @@
+# Configuration pour le site
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+
+# Règle spécifique pour tes fonctions
+/functions/*
+  Access-Control-Allow-Origin: *
+  Content-Type: application/json

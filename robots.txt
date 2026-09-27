@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /assets/css/
+Disallow: /assets/js/
+Disallow: /backup/
+
+Sitemap: https://www.skyxgames.com/sitemap-index.xml
