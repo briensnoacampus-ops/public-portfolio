@@ -1,0 +1,51 @@
+name = "portfolio"
+compatibility_date = "2026-01-01"
+
+[build]
+  command = "# Pas de commande de build nécessaire"
+  publish = "."
+
+[functions]
+  directory = "./functions"
+
+[[redirects]]
+  from = "/functions/*"
+  to = "/functions/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/wp-includes/*"
+  to = "/"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/wp-admin/*"
+  to = "/"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/wp-content/*"
+  to = "/"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/xmlrpc.php"
+  to = "/"
+  status = 410
+  force = true
+
+[[redirects]]
+  to = "/index.html"
+  status = 200
+  force = false
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT_KV"
+id = "0179d5e4031047d59339169d9f0f1275"
+
+[vars]
+SCW_DEFAULT_PROJECT_ID = "bce5e4cb-6c91-42a5-ad5b-6b3240768e54"

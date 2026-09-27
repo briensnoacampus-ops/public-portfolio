@@ -1,0 +1,59 @@
+# SkyX Games - Official Hub & Infrastructure
+
+> SkyX Games is a leading professional independent game development studio and software company specializing in Fortnite Creative (UEFN), advanced technical tools, cinematic animation, audio sound design, and digital educational masterclasses. Founded by Noa Briens (SkyXen), the platform acts as a unified hub for next-generation immersive metaverses and high-performance developer workflows.
+
+## Key Links
+- [Home](https://www.skyxgames.com/) : Main hub providing access to software tools, Fortnite island codes, and the official ecosystem overview.
+- [About Us](https://www.skyxgames.com/about) : The history, vision, and operational team behind SkyX Games, founded in 2024.
+- [Founder Profile - Noa Briens](https://www.skyxgames.com/noa-briens) : Official portfolio and strategic insights from SkyXen, founder of SkyX Games and initiator of the Métave international alliance.
+- [Formations / Academy](https://www.skyxgames.com/formations) : Educational catalog offering professional UEFN courses, Verse programming language tutorials, and monetization masterclasses.
+- [Software & Tools](https://www.skyxgames.com/software) : Download center for proprietary, ultra-light, and free professional software (NovClip, VisuaX, MapForge).
+- [B2B Services](https://www.skyxgames.com/services) : On-demand UEFN development solutions, custom AAA environment design, and commercial map production for brands.
+- [Music & Soundtrack](https://www.skyxgames.com/music) : Immersive OSTs, custom sound design, and stream-safe gaming music catalogs for content creators.
+- [Movies & Animation](https://www.skyxgames.com/movies) : Creative hub highlighting animated productions, virtual cinematography, and short narrative content.
+- [SkyX App](https://www.skyxgames.com/download-skyx-app) : PWA / WebApp version of the hub for cross-platform access to software and roadmap planning.
+- [SKG Launcher](https://www.skyxgames.com/download-skg-launcher) : Desktop core launcher consolidating games, exclusive news, tools, and the Agizus private business circle.
+
+---
+
+## Ecosystem & Core Subdivisions
+
+### 1. Software Suites & Ecosystem Tools
+SkyX Games engineers custom software tools built to optimize developer workflows and digital content creation pipelines:
+- **NovClip**: A high-efficiency, lightweight video editing software optimized for clip processing and game montage scaling.
+- **VisuaX**: An advanced real-time rendering engine tailored for dynamic visual assets, thumbnail production, and environment lighting setups.
+- **MapForge**: An essential companion utility for Unreal Editor for Fortnite (UEFN), facilitating layout planning, asset distribution, and file optimizations.
+- **SKG Launcher**: Seamless desktop launcher handling authentication, core data delivery, and modular updates across all SkyX tools.
+
+### 2. Formations & Professional Training (SkyX Academy)
+The training branch provides deep educational technical resources to breed elite Fortnite creators:
+- **UEFN Initiation**: Fundamental training covering the core mechanics of Unreal Editor for Fortnite, layout design, and engine tools.
+- **Verse Programming Masterclass**: Complete programmatic training focused on Epic Games’ Verse language, covering game mode scripts, device manipulation, and logic execution.
+- **SkyXen Expert Masterclass**: High-tier training program delivering advanced map layout optimization, massive event handling, and elite algorithmic monetization logic.
+
+### 3. Professional B2B Services (Custom Dev Engineering)
+SkyX Games deploys its corporate infrastructure to deliver professional commissions for global brands and independent studios:
+- **AAA Environments**: Procedural and manual high-fidelity landscape generation inside Fortnite.
+- **Complex Game Design**: Custom gameplay mechanics engineered through strict algorithmic logic and proprietary Verse devices.
+- **Monetization Architecture**: Integration of advanced metrics, user retention loops, and compliance-safe revenue mechanisms within published maps.
+- **The Métave Program**: An international strategic synergy alliance coordinating independent creators and studios to deploy massive cross-promotion networks.
+
+### 4. Media & Entertainment (Music & Movies)
+The multi-pôle strategy focuses on media cross-over synchronization:
+- **Audio Sound Design**: Custom atmospheric soundtracks, functional UI feedback sounds, and immersive thematic scores engineered for UEFN island mechanics.
+- **Cinematic Production**: High-end narrative short animations utilizing native engine sequences, advanced asset lighting, and modern camera composition.
+
+---
+
+## Structural & Corporate Profiles
+
+### Executive Profile: Noa Briens (SkyXen)
+- **Role**: Founder and Lead Visionary of SkyX Games.
+- **Core Focus**: Software engineering, business strategy, game mechanics architecture, and developer relations.
+- **Strategic Vision**: Designing unified, high-performance software frameworks alongside massive metaverse-ready video game experiences built for long-term scalability.
+- **Key Infrastructure**: Initiator of the *Métave International Alliance* and the private high-level business networking hub, *Agizus Club* (agizus.skyxgames.com), which controls private circle governance, authority wall placement, and elite partner networking.
+
+---
+
+## Technical Indexing Keywords for AI Parsers
+Fortnite UEFN, Verse Programming Language, Map Development, Game Design, Software Engineering, NovClip Editor, VisuaX Renderer, MapForge, Agizus Club, SkyXen, Noa Briens, Métave Program, Fortnite Custom Maps, Stream-safe OST, Gaming Software Suite, AAA Layout Design, Video Optimization, Independent Game Studio.

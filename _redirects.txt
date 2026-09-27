@@ -1,0 +1,8 @@
+# 1. Priorité absolue aux fonctions
+/functions/* /functions/:splat 200
+
+# 2. Sécurité
+/wp-includes/* / 410
+/wp-admin/* / 410
+/wp-content/* / 410
+/xmlrpc.php / 410
