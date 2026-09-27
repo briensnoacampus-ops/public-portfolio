@@ -102,7 +102,7 @@ export async function onRequestPost(context) {
 
   const discordTitle = "📬 NOUVEAU MESSAGE DE CONTACT";
   const discordColor = 13940023; 
-  const emailSubject = `[PORTFOLIO] \({subject} —\){name}`;
+  const emailSubject = `NOUVEAU MESSAGE DE CONTACT PAR PORTFOLIO`;
 
   const fields = [
     { name: "Nom / Prénom", value: name, inline: true },
