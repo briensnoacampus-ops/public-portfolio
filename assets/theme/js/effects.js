@@ -1,24 +1,4 @@
-/*!
- * saisonal.js — SkyX Games · effets saisonniers "Zero Point"
- * ---------------------------------------------------------------------------
- *  • Deux rails d'énergie (gauche/droite) façon tentacules du Point Zéro :
- *    filaments translucides, effilés, dégradés, impulsions lumineuses.
- *  • Guirlande d'ornements vectoriels (citrouilles/chauves-souris/fantômes,
- *    flocons/étoiles/boules, étoiles/étincelles) accrochée au rail.
- *  • Le rail est TOUJOURS clippé entre le bas de la navbar et le haut du footer
- *    (clip-path recalculé au scroll) → aucun z-index à toucher dans tes pages.
- *  • Effets texte : neige posée sur les titres (Noël), halo + chauve-souris
- *    dorée (Halloween), étincelle dorée (Nouvel An).
- *  • Feux d'artifice (Nouvel An, PC uniquement).
- *  • Mobile : version statique, couleur unie, sans animation, quasi collée au bord.
- *  • Mode TEST : ?sx=noel  ?sx=halloween  ?sx=nouvelan  ?sx=off  ?sx=auto
- *                ?sxdate=12-24  ou  ?sxdate=2026-12-31
- *                ?sxtest=1 (panneau)  ·  Ctrl+Alt+S (panneau)  ·  ?sx=reset
- *    Les réglages sont mémorisés (localStorage) pour naviguer sur tes 50 pages.
- *
- *  Aucune image externe, aucun asset : un seul fichier, ~0 requête réseau.
- * ---------------------------------------------------------------------------
- */
+
 (function () {
   'use strict';
   var hostname = window.location.hostname;
@@ -30,28 +10,25 @@
   if (!isAllowed) return;
   if (window.SaisonalFX) return;
 
-  /* ======================= CONFIG (surchargeable) ======================= */
-  // Pour surcharger : <script>window.SAISONAL_CONFIG = { zIndex: 800 }</script> avant ce script.
   var CFG = Object.assign({
-    // Fenêtres de dates (MMJJ). from > to = chevauche le 31/12.
+
     windows: [
       { s: 'halloween', from: 1020, to: 1101 },
       { s: 'noel',      from: 1201, to: 1228 },
       { s: 'nouvelan',  from: 1229, to: 103  }
     ],
-    // Éléments qui bornent l'effet (haut = navbar, bas = footer)
+
     navSelector: 'nav.navbar, .menu .navbar, [once="menu"], header, nav',
     footerSelector: '[once="footers"], footer',
-    zIndex: 900,              // sous la navbar (1030) et sous les modales (99999)
+    zIndex: 900,           
     storageKey: 'saisonal_test',
-    textFX: true              // effets sur les titres (h1/h2/h3)
+    textFX: true            
   }, window.SAISONAL_CONFIG || {});
 
   var TAU = Math.PI * 2, rnd = Math.random;
   function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
   function mulberry(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; var t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
 
-  /* ============================== ÉTAT / TEST ============================ */
   function defaults() { return { season: 'auto', date: '', lite: false, text: CFG.textFX, zone: false, panel: false }; }
   var state = defaults();
   try { var saved = JSON.parse(localStorage.getItem(CFG.storageKey) || 'null'); if (saved) for (var k in saved) state[k] = saved[k]; } catch (e) {}
@@ -91,7 +68,6 @@
     return detectSeason(getNow());
   }
 
-  /* ================================ THÈMES =============================== */
   var THEMES = {
     halloween: {
       a: ['#ff5a00', '#ffb000', '#ffe27a', '#ff7a1a', '#c23cff'],
@@ -117,7 +93,6 @@
     }
   };
 
-  /* ============================ SPRITES VECTORIELS ======================= */
   function mkSprite(draw) {
     var c = document.createElement('canvas'); c.width = c.height = 80;
     var x = c.getContext('2d'); x.scale(1.25, 1.25); x.translate(32, 32); draw(x); return c;
@@ -208,7 +183,6 @@
     x.fillStyle = g; x.fillRect(0, 0, 32, 32); return c;
   }
 
-  /* ============================ MESURE NAVBAR / FOOTER =================== */
   var navEls = [], footEls = [], lastQuery = 0;
   function requery(force) {
     var now = performance.now(); if (!force && now - lastQuery < 1500) return; lastQuery = now;
@@ -226,7 +200,6 @@
     return top !== clipT || bot !== clipB ? (clipT = top, clipB = bot, true) : false;
   }
 
-  /* ================================= LAYOUT ============================== */
   var qCap = null;
   function layout() {
     var w = window.innerWidth, h = window.innerHeight;
@@ -244,7 +217,7 @@
     return g;
   }
 
-  /* ================================== RAILS ============================== */
+
   var rails = [], theme = null, season = null, sprites = [], dotSpr = null, glowSpr = null, L = null;
   var running = false, raf = 0, lastTs = 0, time = 0, emaCost = 0, frames = 0, emaDt = 16;
 
@@ -314,11 +287,9 @@
     c.globalCompositeOperation = 'lighter';
     var sw = function (y) { return r.gsw * Math.sin(y * .0045 + time * .55 + r.sp); };
 
-    // câble central (fil conducteur de la guirlande)
     c.globalAlpha = .38; c.strokeStyle = r.g.c; c.lineWidth = 1; c.beginPath();
     for (var y = 0; y <= H; y += 20) { var xx = r.cx + sw(y); y ? c.lineTo(xx, y) : c.moveTo(xx, y); } c.stroke();
 
-    // filaments
     for (i = 0; i < r.fil.length; i++) {
       var f = r.fil[i]; f.u += f.speed * dt / (H + f.L); if (f.u >= 1) spawnFil(r, f, false);
       var u = f.u, top = r.dir > 0 ? -f.L + u * (H + f.L) : H - u * (H + f.L);
@@ -331,7 +302,7 @@
       c.fillStyle = r.g[f.g];
       c.globalAlpha = al * .2; ribbon(c, xs, ys, 0, n, r.wp, f.w * 5.5);
       c.globalAlpha = al; ribbon(c, xs, ys, 0, n, r.wp, f.w);
-      // impulsion lumineuse
+
       if (f.hasP) {
         f.p += f.ps * dt; if (f.p > 1.25) f.p = -.2 - rnd() * .9;
         if (f.p > 0 && f.p < 1) {
@@ -346,7 +317,6 @@
       }
     }
 
-    // particules (braises / neige / étincelles)
     for (i = 0; i < r.parts.length; i++) {
       var p = r.parts[i]; p.y += p.vy * dt; p.ph += dt * 1.4;
       if (p.y < -10 || p.y > H + 10) spawnPart(r, p, false);
@@ -355,7 +325,6 @@
       if (c.globalAlpha > .01) c.drawImage(dotSpr, px - p.sz, p.y - p.sz, p.sz * 2, p.sz * 2);
     }
 
-    // guirlande d'ornements
     c.globalCompositeOperation = 'source-over';
     var loop = H + 80, sy = window.pageYOffset || 0;
     for (i = 0; i < r.icons.length; i++) {
@@ -407,7 +376,6 @@
     }
   }
 
-  // Version statique (mobile / reduced-motion / lite) : couleur unie, déterministe
   function drawStatic(r) {
     var c = r.c, H = r.H, W = r.W, rng = mulberry(r.side === 'left' ? 1337 : 7331), period = L.tier === 'm' ? 52 : 70, A = r.amp;
     c.setTransform(r.dpr, 0, 0, r.dpr, 0, 0); c.clearRect(0, 0, W, H);
@@ -427,7 +395,6 @@
     c.globalAlpha = 1;
   }
 
-  /* ============================ BOUCLE / ADAPTATIF ======================= */
   function setClip() {
     var s = 'inset(' + clipT + 'px 0 ' + clipB + 'px 0)';
     for (var i = 0; i < rails.length; i++) { rails[i].cv.style.clipPath = s; rails[i].cv.style.webkitClipPath = s; }
@@ -455,7 +422,6 @@
   var rzT; window.addEventListener('resize', function () { clearTimeout(rzT); rzT = setTimeout(function () { if (season) rebuild(); }, 180); });
   window.addEventListener('scroll', onScroll, { passive: true });
 
-  /* ============================= CSS TEXTE / PANEL ======================= */
   var styleEl = null;
   function enc(svg) { return 'url("data:image/svg+xml,' + encodeURIComponent(svg) + '")'; }
   var ICO = {
@@ -495,7 +461,6 @@
     }
   }
 
-  /* ================================ PANNEAU ============================== */
   var panel = null, infoT = 0;
   function buildPanel() {
     if (panel) return; panel = document.createElement('div'); panel.id = 'sx-panel';
@@ -529,7 +494,6 @@
   }
   document.addEventListener('keydown', function (e) { if (e.ctrlKey && e.altKey && (e.key === 's' || e.key === 'S')) { e.preventDefault(); setPanel(!panel); } });
 
-  /* ============================ CYCLE DE VIE ============================= */
   function teardown() {
     stopLoop(); rails.forEach(function (r) { r.cv.remove(); }); rails = [];
     ['sx-halloween', 'sx-noel', 'sx-nouvelan', 'sx-text'].forEach(function (c) { document.body.classList.remove(c); });
@@ -550,20 +514,19 @@
   }
 
   function init() {
-    detectNative(); // repère les h2/h3 qui ont déjà un ::before (avant d'ajouter les nôtres)
+    detectNative(); 
     apply(); if (state.panel) buildPanel();
   }
   function boot() {
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go();
-    function go() { // on attend le chargement complet pour ne jamais gêner le LCP
+    function go() { 
       var run = function () { (window.requestIdleCallback || function (f) { setTimeout(f, 60); })(init); };
       document.readyState === 'complete' ? run() : window.addEventListener('load', run);
     }
   }
 
-  /* ================================= API ================================= */
   window.SaisonalFX = {
-    now: getNow,                                   // pour seasonal.js : new Date() → SaisonalFX.now()
+    now: getNow,                                 
     season: function () { return season; },
     setSeason: function (s) { state.season = s; save(); apply(); },
     setDate: function (d) { state.date = d || ''; state.season = 'auto'; save(); apply(); },
