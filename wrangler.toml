@@ -1,12 +1,27 @@
 name = "portfolio"
 compatibility_date = "2026-01-01"
 
+<<<<<<< HEAD
 [functions]
   directory = "./functions"
 
 [build]
   command = ""
   publish = "."
+=======
+[build]
+  command = "# Pas de commande de build nécessaire"
+  publish = "."
+
+[functions]
+  directory = "./functions"
+
+[[redirects]]
+  from = "/functions/*"
+  to = "/functions/:splat"
+  status = 200
+  force = true
+>>>>>>> 6d10132db67d7bd7da917dddd5f116bbb180fd55
 
 [[redirects]]
   from = "/wp-includes/*"
@@ -32,9 +47,13 @@ compatibility_date = "2026-01-01"
   status = 410
   force = true
 
+<<<<<<< HEAD
 # Redirection Single Page Application (SPA)
 [[redirects]]
   from = "/*"
+=======
+[[redirects]]
+>>>>>>> 6d10132db67d7bd7da917dddd5f116bbb180fd55
   to = "/index.html"
   status = 200
   force = false
@@ -42,3 +61,9 @@ compatibility_date = "2026-01-01"
 [[kv_namespaces]]
 binding = "RATE_LIMIT_KV"
 id = "0179d5e4031047d59339169d9f0f1275"
+<<<<<<< HEAD
+=======
+
+[vars]
+SCW_DEFAULT_PROJECT_ID = "bce5e4cb-6c91-42a5-ad5b-6b3240768e54"
+>>>>>>> 6d10132db67d7bd7da917dddd5f116bbb180fd55
