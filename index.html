@@ -982,7 +982,6 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 
 
-</div>
             </div>
         </div>
 
@@ -1275,7 +1274,33 @@ function triggerSecurityUI() {
       </div>
     </div>
   </div>
+</section>
 
+<script>
+
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+
+  function forceScrollTop() {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant"
+    });
+  }
+
+  forceScrollTop();
+
+  window.addEventListener("DOMContentLoaded", forceScrollTop);
+  window.addEventListener("load", forceScrollTop);
+
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) {
+      forceScrollTop();
+    }
+  });
+</script>
 	<script>
 document.addEventListener("DOMContentLoaded", () => {
     const rgpdCheck = document.getElementById('rgpdCheck');
